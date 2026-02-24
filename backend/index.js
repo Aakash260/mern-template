@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 dotenv.config();
 const PORT = process.env.PORT || 1234;
 ConnectDB();
+
 app.use("/api/v1/", router);
 app.listen(PORT, () => {
   console.log(`the app is listen to PORT:${PORT}`);
