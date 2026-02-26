@@ -1,19 +1,19 @@
-import React from "react";
 import { Link } from "react-router-dom";
-
 const Navbar = () => {
   return (
     <nav className="bg-blue-600 px-6 py-4 shadow-md">
       <div className="max-w-6xl mx-auto flex justify-between items-center">
         <h1 className="text-white text-xl font-semibold">
-          Task Management App
+          Multi Store Dashboard
         </h1>
-
-        <ul className="flex space-x-6 text-white font-medium">
-          <Link to={"/login"} className="cursor-pointer hover:text-gray-200">
-            Login
+        <nav>
+          <Link
+            to={"/change-discount"}
+            className="border p-1 rounded cursor-pointer px-2 "
+          >
+            Label
           </Link>
-        </ul>
+        </nav>
       </div>
     </nav>
   );
