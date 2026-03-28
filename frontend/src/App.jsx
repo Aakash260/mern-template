@@ -19,6 +19,7 @@ const UserForm = () => {
   const [documents, setDocuments] = useState([
     { file_name: "", file_type: "", file: null },
   ]);
+  const [documentsKey, setDocumentsKey] = useState(0);
 
   const validate = () => {
     const newErrors = validateUserForm({
@@ -74,21 +75,22 @@ const UserForm = () => {
       } else {
         alert("Submitted successfully!");
 
-        // setForm({
-        //   first_name: "",
-        //   last_name: "",
-        //   email: "",
-        //   dob: "",
-        //   same_as_residential: false,
-        // });
+        setForm({
+          first_name: "",
+          last_name: "",
+          email: "",
+          dob: "",
+          same_as_residential: false,
+        });
 
-        // setResAddress({});
-        // setPermAddress({});
-        // setDocuments([{ file_name: "", file_type: "", file: null }]);
+        setResAddress({});
+        setPermAddress({});
+        setDocuments([{ file_name: "", file_type: "", file: null }]);
+        setDocumentsKey((k) => k + 1);
         setErrors({});
       }
     } catch (err) {
-      console.error(err);
+      console.error("err", err);
       alert("Something went wrong");
     }
   };
@@ -187,6 +189,7 @@ const UserForm = () => {
 
         <div className="col-span-2">
           <DocumentUpload
+            key={documentsKey}
             documents={documents}
             setDocuments={setDocuments}
             errors={errors}

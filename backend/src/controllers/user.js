@@ -41,7 +41,6 @@ const submitUser = async (req, res) => {
     req.files.forEach((file, index) => {
       const docType = data.documents[index].file_type;
 
-      
       if (docType === "pdf" && file.mimetype !== "application/pdf") {
         deleteFiles(req.files);
         return res
@@ -49,7 +48,6 @@ const submitUser = async (req, res) => {
           .json({ message: `Document ${index + 1} must be a PDF` });
       }
 
-      
       if (
         docType === "image" &&
         !["image/png", "image/jpeg"].includes(file.mimetype)
@@ -66,7 +64,12 @@ const submitUser = async (req, res) => {
       file_type: data.documents[index].file_type,
       url: file.path,
     }));
+    const existingUser = await User.findOne({ email: data.email });
 
+    if (existingUser) {
+      deleteFiles(req.files);
+      return res.status(400).json({ message: "Email already exists" });
+    }
     const user = new User({
       ...data,
       documents,
