@@ -13,6 +13,7 @@ const AddressForm = ({ title, address, setAddress }) => {
       <h3 className="text-lg font-semibold mb-3">{title}</h3>
 
       <InputField
+        required="true"
         label="Street One"
         name="street_one"
         value={address.street_one || ""}
@@ -20,6 +21,7 @@ const AddressForm = ({ title, address, setAddress }) => {
       />
 
       <InputField
+        required="true"
         label="Street Two"
         name="street_two"
         value={address.street_two || ""}

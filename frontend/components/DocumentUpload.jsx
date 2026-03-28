@@ -16,7 +16,7 @@ const DocumentUpload = ({ documents, setDocuments, errors }) => {
 
   return (
     <div className="border border-gray-200 p-4 rounded-xl bg-white shadow-sm">
-      <h3 className="font-semibold mb-3 text-lg">Documents</h3>
+      <h3 className="font-semibold mb-3 text-lg">Documents (minimum 2) </h3>
 
       {documents.map((doc, index) => (
         <div

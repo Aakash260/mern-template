@@ -103,6 +103,7 @@ const UserForm = () => {
         <div>
           <InputField
             label="First Name"
+            required="true"
             name="first_name"
             value={form.first_name}
             onChange={handleChange}
@@ -114,6 +115,7 @@ const UserForm = () => {
 
         <div>
           <InputField
+            required="true"
             label="Last Name"
             name="last_name"
             value={form.last_name}
@@ -126,6 +128,7 @@ const UserForm = () => {
 
         <div>
           <InputField
+            required="true"
             label="Email"
             name="email"
             value={form.email}
@@ -138,6 +141,7 @@ const UserForm = () => {
 
         <div>
           <InputField
+            required="true"
             label="Date of Birth"
             name="dob"
             type="date"
